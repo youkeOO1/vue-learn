@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 使用属性href 只能用a元素，其他元素无法使用，使用onclick事件， 第二个原因当href中没有#号时会进行页面跳转 -->
+    <!-- <a href="#/">首页</a>
+    <a href="#/about">关于</a> -->
+    <!-- 改用onclick事件 -->
+    <a onclick="handleClick('/')">首页</a>
+    <a onclick="handleClick('/about')">关于</a>
+    <div id="view"></div>
+    <script>
+        // 当锚点发生改变时触发此事件
+        // window.addEventListener('hashchange',e =>{
+        //     console.log("xxxxx")
+        // })
+        // 当纯HTML被完全加载以及解析时，DOMContentLoaded 事件会被触发
+        // window.addEventListener('DOMContentLoaded',()=>{
+        //     console.log('当纯HTML被完全加载以及解析时，DOMContentLoaded 事件会被触发')
+        // })
+        function handleClick(states) {
+            // location.hash = states;
+            history.pushState(null, null, states) //方法向当前浏览器会话的历史堆栈中添加一个状态
+            console.log(history.length)
+            console.log(history)
+            view.innerText = states;
+        }
+        // 当浏览器进行前进与回退时view中的内容并不会进行更新
+        window.addEventListener('popstate', () => {
+            view.innerText = location.pathname;
+        })
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('当纯HTML被完全加载以及解析时，DOMContentLoaded 事件会被触发')
+            view.innerText = location.pathname;
+        })
+    </script>
+</body>
+
+</html>
