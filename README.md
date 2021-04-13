@@ -1,19 +1,2 @@
-# vue-vuex
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## vueX-state 学习代码
+## 笔记: 语雀:https://www.yuque.com/docs/share/bd3095c0-58a2-4f6c-8417-3ee4022f3b05?# 《vueX-State》
